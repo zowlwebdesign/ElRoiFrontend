@@ -1,0 +1,1 @@
+import { create } from "zustand";`n`ntype CartState = {`n  items: any[];`n  addItem: (item: any) => void;`n};`n`nexport const useCartStore = create<CartState>((set) => ({`n  items: [],`n  addItem: (item) => set((state) => ({ items: [...state.items, item] })),`n}));
