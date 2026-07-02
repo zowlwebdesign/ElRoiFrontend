@@ -1,1 +1,8 @@
-import styles from "./page.module.css";`n`nexport default function Contacto() {`n  return <div className={styles.container}><h1>Contacto</h1></div>;`n}
+export default function Contacto() {
+  return (
+    <div>
+      <h1 style={{ fontSize: '36px', fontWeight: 'bold', marginBottom: '20px' }}>Contacto</h1>
+      <p style={{ fontSize: '18px' }}>Ponte en contacto con nosotros.</p>
+    </div>
+  );
+}
