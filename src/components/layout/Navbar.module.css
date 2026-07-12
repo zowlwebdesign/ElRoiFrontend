@@ -1,0 +1,246 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(241, 234, 224, 0.8); /* --bone with 80% opacity */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brandArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+}
+
+.dotWhite { background-color: #ffffff; }
+.dotPrimary { background-color: var(--rose); }
+.dotSecondary { background-color: var(--sage); }
+
+.brandText {
+  font-family: var(--font-display), serif;
+  color: var(--ink);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.link {
+  font-family: var(--font-ui), sans-serif;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.link:hover, .linkActive {
+  color: var(--rose-deep);
+}
+
+.linkActive {
+  border-bottom: 2px solid var(--rose-deep);
+  padding-bottom: 4px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ink);
+}
+
+.iconBtn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: var(--rose-deep);
+}
+
+.iconBtn:active {
+  transform: scale(0.95);
+}
+
+/* ─── Tienda Dropdown ─── */
+.dropdownWrap {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.chevron {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 200px;
+  background: rgba(248, 244, 238, 0.97);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(33, 29, 26, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownInner {
+  padding: 0.75rem 0;
+}
+
+.dropdownAll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-display), serif;
+  font-size: 15px;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.dropdownAll:hover {
+  color: var(--rose-deep);
+}
+
+.dropdownAllLabel {
+  font-weight: 600;
+}
+
+.dropdownAllArrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.dropdownAll:hover .dropdownAllArrow {
+  transform: translateX(3px);
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: var(--line);
+  margin: 0.5rem 1.25rem;
+}
+
+.dropdownCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.45rem 1.25rem;
+  font-family: var(--font-body), serif;
+  font-size: 13px;
+  color: var(--ink-soft);
+  transition: color 0.2s ease, background-color 0.15s ease;
+}
+
+.dropdownItem:hover {
+  color: var(--rose-deep);
+  background: rgba(180, 137, 124, 0.06);
+}
+
+.dropdownDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rose-pale);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownDot {
+  background: var(--rose);
+}
+
+.iconBtnWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: var(--rose);
+  color: #fff;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

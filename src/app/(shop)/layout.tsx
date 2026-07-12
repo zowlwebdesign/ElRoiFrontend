@@ -1,12 +1,17 @@
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { getCategorias } from "@/services/productos";
 
-export default function ShopLayout({ children }: { children: React.ReactNode }) {
+export default async function ShopLayout({ children }: { children: React.ReactNode }) {
+  const categorias = await getCategorias();
+
   return (
     <>
-      <Navbar />
-      <main style={{ flex: 1, padding: '40px', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+      <Navbar categorias={categorias} />
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         {children}
-      </main>
+      </div>
+      <Footer />
     </>
   );
 }
